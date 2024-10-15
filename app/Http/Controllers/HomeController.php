@@ -2,8 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Hash;
 
 class HomeController extends Controller
 {
@@ -13,14 +16,14 @@ class HomeController extends Controller
 
         $menus = DB::table('menus')
             ->join('categories', 'category_id', '=', 'categories.id')
-            ->join('sizes', 'size_id', '=', 'sizes.id')
-            ->select('menus.*', 'categories.name as namec', 'sizes.name as names')
+            ->select('menus.*', 'categories.name as namec')
             ->orderBy('menus.id')
             ->get();
         //Lay danh muc
         $categories = DB::table('categories')->get();
+        $user = Auth::user();
 
-        return view('client.home', compact('menus', 'categories'));
+        return view('client.home', compact('menus', 'categories', 'user'));
     }
     public function detail($id)
     {
@@ -61,4 +64,7 @@ class HomeController extends Controller
 
         return view('client.views.shop', compact('menus', 'categories'));
     }
+
+
+
 }

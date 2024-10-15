@@ -13,10 +13,6 @@ class SizeSeeder extends Seeder
      */
     public function run(): void
     {
-        DB::table('sizes')->insert([
-            ['name' => 'Large'],
-            ['name' => 'Medium'],
-            ['name' => 'Small']
-        ]);
+
     }
 }

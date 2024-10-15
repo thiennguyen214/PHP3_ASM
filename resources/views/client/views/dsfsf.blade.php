@@ -1,4 +1,13 @@
 @extends('client.layouts.master')
+@section('css')
+    @include('client.css.css_ctsp')
+@endsection
+@section('js')
+    @include('client.js.ctsp')
+@endsection
+@section('jsft')
+    @include('client.js.fot_ctsp')
+@endsection
 @section('body',
     'product-template-default single single-product postid-1483 wp-embed-responsive theme-panpie
     woocommerce woocommerce-page woocommerce-no-js rtwpvg rtwpvs rtwpvs-rounded rtwpvs-attribute-behavior-hide

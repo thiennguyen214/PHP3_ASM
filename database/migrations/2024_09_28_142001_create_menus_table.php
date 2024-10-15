@@ -19,7 +19,6 @@ return new class extends Migration {
             $table->integer('quantity');
             $table->integer('quantity_sold');
             $table->string('img', 500);
-            $table->bigInteger('size_id');
             $table->bigInteger('category_id');
             $table->timestamps();
         });

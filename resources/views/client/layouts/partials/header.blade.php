@@ -73,10 +73,20 @@
                         <div class="header-icon-area">
                             <div class="contact-info">
                                 <div class="icon-left">
-                                    <i class="fas fa-phone-volume"></i>
+                                    <a href="{{ route('logout') }}"><i class="fa-regular fa-user"></i></a>
                                 </div>
-                                <div class="info"><span class="info-label">HOT LINE: </span><span class="info-text"><a
-                                            href="tel:+84896947661">089.694.7661</a></span>
+                                <div class="info">
+                                    @if (isset($user))
+                                        <span class="info-label">Tài khoản: {{ $user->username }}</span>
+                                        <span class="info-text">
+                                            <a
+                                                href="{{ $user_au->role == 'admin' ? '/admin' : '#' }}">{{ $user->fullname }}</a>
+                                        </span>
+                                    @else
+                                        <span class="info-text">
+                                            <a href="{{ route('login') }}">Sign In</a>
+                                        </span>
+                                    @endif
                                 </div>
                             </div>
                             <div class="cart-icon-area">
